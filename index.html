@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Javascript Testing</title>
+
+</head>
+
+<body>
+	
+	<script>
+
+		// This is an object: 
+		var obj = {
+			// Properties: Values;
+			firstName: "Emily",
+			lastName: "James"
+		};
+
+
+		//dot notation: adds a new property
+		obj.age = 25;
+		obj["nickname"] = "Milly";
+
+		var msWhat = obj.lastName;
+
+		console.log(msWhat);
+
+		alert(obj.firstName + "!");
+
+
+		// Object Methods
+		Object.defineProperty(obj, "country", {
+			value: "New Zealand"
+		});
+
+		console.log(obj.country);
+
+		Object.defineProperties(obj, {
+			faveFood: {value: "Jelly Beans"}, 
+			faveColor: {value: "Purple"}
+
+		});
+
+		console.log (obj.faveColor);
+
+		alert(obj.faveFood);
+
+		//AllBlacks
+		var abJonah = {
+			team: "AllBlacks",
+			firstName: "Jonah",
+			lastName: "Lomu",
+			sayName: function (){
+				return "My name is " + this.firstName + " " + this.lastName + "!"; 
+			}
+		};
+
+		var abFitzy = Object.create (abJonah, {
+			firstName: {value: "Sean"},
+			lastName: {value: "Fitzpatrick"},
+			profession: {value: "Rugby"},
+			captainsSpeech: {
+				value: function(person){
+					return	"What a game! " + this.profession + " was the winner on the day. God bless the " + person.team + ".";
+				}
+			}
+		
+		});
+
+		//invoke
+		alert(abJonah.sayName() 
+			);
+		alert(abFitzy.captainsSpeech(abFitzy)
+			);
+
+	</script> 
+
+</body>
+</html>
